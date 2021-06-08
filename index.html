@@ -18,7 +18,8 @@
     <div class="container">
         <div id="timer">
             <div id="clock"></div>
-            <div class="text">
+            <div id="timer"></div>
+            <div id="clock-action">
                 <inpu id="work" type="text" value="task" placeholder="Enter your task...">
                     <i class="fas fa-play-circle">Start</i>
 
@@ -29,7 +30,7 @@
         </div>
         <p class="text"></p>
 
-        <div>
+        <div id="setting-area">
             <div class="set-time">
                 <p>Work Duration</p>
                 <input type="text" value="workDuration">
@@ -40,14 +41,14 @@
                     <input type="text" value="breakDuration">
                 </div>
             </div>
-            <div id="session-list">
-                <ul>
-                    <li class="text">Nothing to see yet</li>
-                </ul>
 
-            </div>
         </div>
+        <div id="session-list">
+            <ul>
+                <li class="text">Nothing to see yet</li>
+            </ul>
 
+        </div>
 
 
         <script src="./app.js"></script>
