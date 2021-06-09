@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Roboto:wght@100&family=Ubuntu&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Roboto:wght@100&family=Ubuntu&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/df11f1ce25.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -17,14 +15,15 @@
 <body>
     <div class="container">
         <div id="timer">
-            <div id="clock"></div>
+            <div id="clock">clock</div>
             <div id="timer"></div>
+            <input id="work" type="text" placeholder="Enter your task...">
             <div id="clock-action">
-                <inpu id="work" type="text" value="task" placeholder="Enter your task...">
-                    <i class="fas fa-play-circle">Start</i>
 
-                    <i class="fas fa-pause-circle">Pause</i>
-                    <i class="fas fa-stop-circle">Stop</i>
+                <i class="fas fa-play-circle text">Start</i>
+
+                <i class="fas fa-pause-circle text">Pause</i>
+                <i class="fas fa-stop-circle text">Stop</i>
 
             </div>
         </div>
@@ -32,26 +31,26 @@
 
         <div id="setting-area">
             <div class="set-time">
-                <p>Work Duration</p>
-                <input type="text" value="workDuration">
+                <p class="text">Work Duration</p>
+                <input type="number" placeholder="Work Duration">
             </div>
             <div>
                 <div class="set-time">
-                    <p>Break Duration</p>
-                    <input type="text" value="breakDuration">
+                    <p class="text">Break Duration</p>
+                    <input type="number " placeholder="Break Duration ">
                 </div>
             </div>
 
         </div>
-        <div id="session-list">
+        <div id="session-list ">
             <ul>
-                <li class="text">Nothing to see yet</li>
+                <li class="text ">Nothing to see yet</li>
             </ul>
 
         </div>
 
 
-        <script src="./app.js"></script>
+        <script src="./app.js "></script>
 </body>
 
 </html>
