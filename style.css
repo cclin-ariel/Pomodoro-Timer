@@ -4,6 +4,25 @@
     text-align: center;
 }
 
+#now {
+    margin: 20px;
+}
+
+#clock {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    border: rgb(214, 72, 72) 10px solid;
+    border-radius: 50%;
+}
+
+#timer {
+    color: var(--theme-ui-colors-article, #4a5568);
+    font-size: 80px;
+    font-family: Fira Sans;
+    margin-top: 94px;
+}
+
 #work {
     margin: 30px auto;
 }
@@ -12,4 +31,9 @@
     color: var(--theme-ui-colors-article, #4a5568);
     font-size: 1.25rem;
     font-family: Fira Sans;
+}
+
+ul .text {
+    font-size: 15px !important;
+    color: var(--theme-ui-colors-article, #7b8497) !important;
 }
