@@ -1,0 +1,15 @@
+.container {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+#work {
+    margin: 30px auto;
+}
+
+.text {
+    color: var(--theme-ui-colors-article, #4a5568);
+    font-size: 1.25rem;
+    font-family: Fira Sans;
+}
