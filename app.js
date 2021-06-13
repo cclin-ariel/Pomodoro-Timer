@@ -72,13 +72,23 @@ const stepDown = () => {
 
         //display a log of our completed sessions
         if (type === "Work") {
-            currentTimeLeftInSession = breakSessionDuration;
             displySessionLog("Work");
+            currentTimeLeftInSession = breakSessionDuration;
             type = "Break";
+
+            //label
+            currentTaskLabel.value = "Break";
+            currentTaskLabel.disabled = true;
         } else {
-            currentTimeLeftInSession = workSessionDuration;
             displaySessionLog("Break");
+            currentTimeLeftInSession = workSessionDuration;
             type = "Work";
+
+            //label
+            if (currentTaskLabel.value === "Break") {
+                currentTaskLabel.value = workSessionLabel;
+            }
+            currentTaskLabel.disabled = false;
         }
 
     }
@@ -106,6 +116,12 @@ const displayCurrentTimeLeftInSession = () => {
 
 //displaySessionLog function
 const displaySessionLog = type => {
+    if (type === "work") {
+        sessionLabel = currentTaskLabel.value ? currentTaskLabel : "Work";
+        workSessionLabel = sessionLabel;
+    } else {
+        sessionLabel = "Break";
+    };
     const li = document.createElement("li");
     var sessionLabel = type;
     var elapsedTime = parseInt(timeSpentIncurrentSession / 60);
