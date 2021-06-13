@@ -30,6 +30,27 @@ var breakSessionDuration = 300; //5 mins
 var type = "Work";
 var timeSpentIncurrentSession = 0;
 
+//Customize the duration of the sessions
+var updatedWorkSessionDuration;
+var updatedBreakSessionDuration;
+var workDuraqtionInput = document.querySelector("#input-work-duration");
+var breakDurationInput = document.querySelector("input-break-duration");
+
+workDuraqtionInput = "25"; //mins
+breakDurationInput = "5"; //mins
+
+//update the work time
+workDuraqtionInput.addEventListener("input", () => {
+    updatedWorkSessionDuration = minuteToSecond(workDuraqtionInput.value)
+});
+breakDurationInput.addEventListener("input", () => {
+    updatedBreakSessionDuration = minuteToSecond(breakDurationInput.value)
+});
+
+const minuteToSecond = mins => {
+    return mins * 60;
+}
+
 //show the current time
 var currentTime = setInterval(() => {
     var d = new Date();
@@ -40,9 +61,8 @@ var currentTime = setInterval(() => {
 }, 1000);
 
 //toggleClock function
-//Toggle between work and break sessions 
-
 const toggleClock = reset => {
+    //Toggle between work and break sessions 
     if (reset) {
         //stop the time
         stopClock();
@@ -148,6 +168,6 @@ const stopClock = () => {
 
 
 
-//Customize the work label and the duration of the sessions
+
 
 //Add a circular progress bar to the timer
