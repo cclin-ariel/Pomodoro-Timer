@@ -3,6 +3,7 @@ const timer = document.querySelector('#timer');
 const startButton = document.querySelector('#start');
 const pausrButton = document.querySelector('#pause');
 const stopButton = document.querySelector('#stop');
+const sessionList = document.querySelector('#session-list');
 
 
 //3 btn CLICK function
@@ -57,33 +58,32 @@ const toggleClock = reset => {
             // decrease time left & increase time spent  
             clockTimer = setInterval(() => {
                 stepDown();
-
-                //step donw function
-                const stepDown = () => {
-                    if (currentTimeLeftInSession > 0) {
-                        currentTimeLeftInSession--;
-                        timeSpentIncurrentSession++;
-                    } else if (currentTimeLeftInSession === 0) {
-                        timeSpentIncurrentSession = 0;
-
-                        //display a log of our completed sessions
-                        if (type == "Work") {
-                            currentTimeLeftInSession = breakSessionDuration;
-                            displySessionLog("Work");
-                            type = "Break";
-                        } else {
-                            currentTimeLeftInSession = workSessionDuration;
-                            displaySessionLog("Break");
-                            type = "Work";
-                        }
-
-                    }
-                }
-
-                displayCurrentTimeLeftInSession(); //show the left time
             }, 1000);
         }
     }
+};
+//step donw function
+const stepDown = () => {
+    if (currentTimeLeftInSession > 0) {
+        currentTimeLeftInSession--;
+        timeSpentIncurrentSession++;
+    } else if (currentTimeLeftInSession === 0) {
+        timeSpentIncurrentSession = 0;
+
+        //display a log of our completed sessions
+        if (type === "Work") {
+            currentTimeLeftInSession = breakSessionDuration;
+            displySessionLog("Work");
+            type = "Break";
+        } else {
+            currentTimeLeftInSession = workSessionDuration;
+            displaySessionLog("Break");
+            type = "Work";
+        }
+
+    }
+    displayCurrentTimeLeftInSession(); //show the left time
+
 };
 
 //displayCurrentTimeLeftInSession function   
@@ -104,6 +104,18 @@ const displayCurrentTimeLeftInSession = () => {
     timer.innerHTML = result.toString();
 };
 
+//displaySessionLog function
+const displaySessionLog = type => {
+    const li = document.createElement("li");
+    var sessionLabel = type;
+    var elapsedTime = parseInt(timeSpentIncurrentSession / 60);
+    elapsedTime = elapsedTime > 0 ? elapsedTime : "< 1";
+
+    const text = document.createTextNode(`${sessionLabel} : ${elapsedTime} min`);
+    li.appendChild(text);
+    sessionList.appendChild(li);
+};
+
 //stopClock() stop and reset the timer
 
 const stopClock = () => {
@@ -115,12 +127,11 @@ const stopClock = () => {
     currentTimeLeftInSession = workSessionDuration;
     // update the timer diplay
     displayCurrentTimeLeftInSession();
-}
-
-//displaySessionLog function
-const displaySessionLog =
+};
 
 
-    //Customize the work label and the duration of the sessions
 
-    //Add a circular progress bar to the timer
+
+//Customize the work label and the duration of the sessions
+
+//Add a circular progress bar to the timer
