@@ -1,18 +1,16 @@
 //choose element
 const timer = document.querySelector('#timer');
-const startButton = document.querySelector('#start');
+const playButton = document.querySelector('#start');
 const stopButton = document.querySelector('#stop');
 
+//btn CLICK function
 
-
-//3 btn CLICK function
-
-startButton.addEventListener('click', () => {
+playButton.addEventListener('click', () => {
     toggleClock();
 });
 
 stopButton.addEventListener('click', () => {
-    toggleClock(true)
+    toggleClock(true);
 });
 
 //variables
@@ -77,6 +75,7 @@ var currentTime = setInterval(() => {
 var isClockStopped = true;
 
 const toggleClock = reset => {
+    togglePlayPauseIcon(reset);
     //Toggle between work and break sessions 
     if (reset) {
         //stop the time
@@ -194,9 +193,21 @@ const stopClock = () => {
     type = "work"; //to reset the session to work
 };
 
+//togglePlayPauseIcon 
 
-
-
-
-
-//togglePlayPauseIcon function
+const togglePlayPauseIcon = (reset) => {
+    const playIcon = document.querySelector('#play')
+    const pauseIcon = document.querySelector('#pause')
+    if (reset) {
+        // when resetting -> always revert to play icon
+        if (playIcon.classList.contains('hidden')) {
+            playIcon.classList.remove('hidden')
+        }
+        if (!pauseIcon.classList.contains('hidden')) {
+            pauseIcon.classList.add('hidden')
+        }
+    } else {
+        playIcon.classList.toggle('hidden')
+        pauseIcon.classList.toggle('hidden')
+    }
+}
