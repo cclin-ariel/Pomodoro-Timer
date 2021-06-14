@@ -33,6 +33,15 @@
     font-family: Fira Sans;
 }
 
+.hidden {
+    display: none !important;
+}
+
+
+/* button {
+    border: none;
+} */
+
 ul .text {
     font-size: 15px !important;
     color: var(--theme-ui-colors-article, #7b8497) !important;

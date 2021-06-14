@@ -25,37 +25,49 @@
         </div>
         <div id="clock-action">
 
-            <i id="start" class="fas fa-play-circle text">Start</i>
+            <i id="start" class="fas fa-play-circle text"></i>
 
-            <i id="pause" class="fas fa-pause-circle text">Pause</i>
-            <i id="stop" class="fas fa-stop-circle text">Stop</i>
-
+            <i id="pause" class="fas fa-pause-circle text hidden"></i>
+            <i id="stop" class="fas fa-stop-circle text hidden"></i>
+            <!-- <button id="pomodoro-start" class="text">
+                <i class="fas fa-play-circle" id="play"></i>
+            </button>
+            <botton class="hidden text">
+                <i class="fas fa-pause" id="pause"></i>
+            </botton>
+            <button id="stop" class="hidden text">
+                <i class="fas fa-stop-circle"></i>
+            </button> -->
+        </div>
+        <div id="title" class="text">
+            <span>
+                Changes made here will reflect at the start of the next work /
+                break session
+            </span>
         </div>
 
-        <p class="text"></p>
 
         <div id="setting-area">
             <div class="set-time">
-                <p class="text">Work Duration</p>
-                <input id="input-work-duration" type="number" placeholder="Work Duration">
-            </div>
-            <div>
-                <div class="set-time">
-                    <p class="text">Break Duration</p>
-                    <input id="input-break-duration" type="number " placeholder="Break Duration ">
-                </div>
+                <label class="text">Work Duration</label>
+                <input name="input-work-duration" id="input-work-duration" type="number" placeholder="Work Duration">
             </div>
 
+            <div class="set-time">
+                <label class="text">Break Duration</label>
+                <input name="input-break-duration" id="input-break-duration" type="number " placeholder="Break Duration ">
+            </div>
+
+            <div id="session-list">
+                <h3 class="text">Your Sessions </h3>
+                <ul id="pomodoro-sessions" class="text">
+                </ul>
+            </div>
         </div>
-        <div id="session-list">
-            <ul>
-                <li class="text ">Nothing to see yet</li>
-            </ul>
 
-        </div>
+    </div>
 
-
-        <script src="./app.js "></script>
+    <script src="./app.js "></script>
 </body>
 
 </html>
