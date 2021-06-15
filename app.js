@@ -28,6 +28,7 @@ var currentTaskLabel = document.querySelector('#task');
 //Customize the duration of the sessions
 var updatedWorkSessionDuration;
 var updatedBreakSessionDuration;
+
 var workDurationInput = document.querySelector('#input-work-duration');
 var breakDurationInput = document.querySelector('#input-break-duration');
 
@@ -96,9 +97,13 @@ const toggleClock = reset => {
             // decrease time left & increase time spent  
             clockTimer = setInterval(() => {
                 stepDown();
+                displayCurrentTimeLeftInSession();
+                progressBar.set(calculateSessionProgress());
             }, 1000);
             isClockRunning = true;
         }
+
+        showStopIcon();
     }
 };
 //step donw function
@@ -111,7 +116,7 @@ const stepDown = () => {
 
         //display a log of our completed sessions
         if (type === "Work") {
-            displySessionLog("Work");
+            displaySessionLog("Work");
             currentTimeLeftInSession = breakSessionDuration;
             type = "Break";
             setUpdatedTimers();
@@ -152,13 +157,14 @@ const displayCurrentTimeLeftInSession = () => {
 
     if (hours > 0) result += `${hours}:`;
     result += `${addLeadingZeroes(mins)}:${addLeadingZeroes(seconds)}`;
-    timer.innerHTML = result.toString();
+    progressBar.text.innerText = result.toString();
 };
 
 //displaySessionLog function
 const displaySessionLog = type => {
-    if (type === "work") {
-        sessionLabel = currentTaskLabel.value ? currentTaskLabel : "Work";
+    var sessionLabel = type;
+    if (type === "Work") {
+        sessionLabel = currentTaskLabel.value ? currentTaskLabel.value : "Work";
         workSessionLabel = sessionLabel;
     } else {
         sessionLabel = "Break";
@@ -166,7 +172,7 @@ const displaySessionLog = type => {
     const sessionList = document.querySelector('#session-list');
     //append li to it
     const li = document.createElement('li');
-    var sessionLabel = type;
+
     var elapsedTime = parseInt(timeSpentIncurrentSession / 60);
     elapsedTime = elapsedTime > 0 ? elapsedTime : '< 1';
 
@@ -190,7 +196,7 @@ const stopClock = () => {
     currentTimeLeftInSession = workSessionDuration;
     // update the timer diplay
     displayCurrentTimeLeftInSession();
-    type = "work"; //to reset the session to work
+    type = "Work"; //to reset the session to work
 };
 
 //togglePlayPauseIcon 
@@ -210,4 +216,28 @@ const togglePlayPauseIcon = (reset) => {
         playIcon.classList.toggle('hidden')
         pauseIcon.classList.toggle('hidden')
     }
-}
+};
+
+//showStopIcon when timer is running
+
+const showStopIcon = () => {
+    const stopIcon = document.querySelector('#stop');
+    const playIcon = document.querySelector('#play')
+    stopIcon.classList.remove('hidden');
+};
+
+//progress bar
+const progressBar = new ProgressBar.Circle('#timer', {
+    strokeWidth: 2,
+    text: {
+        value: '25:00',
+    },
+    trailColor: '#f4f4f4',
+});
+
+// calculate the completion rate of this session
+const calculateSessionProgress = () => {
+    const sessionDuration =
+        type === 'Work' ? workSessionDuration : breakSessionDuration
+    return (timeSpentInCurrentSession / sessionDuration) * 10
+};

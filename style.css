@@ -8,19 +8,42 @@
     margin: 20px;
 }
 
-#clock {
+
+/* #clock {
     width: 300px;
     height: 300px;
     margin: auto;
     border: rgb(214, 72, 72) 10px solid;
     border-radius: 50%;
-}
+} */
 
 #timer {
     color: var(--theme-ui-colors-article, #4a5568);
     font-size: 80px;
     font-family: Fira Sans;
-    margin-top: 94px;
+    margin-top: 40px;
+}
+
+#task {
+    margin-top: 30px;
+    height: 25px;
+    font-size: 15px;
+}
+
+#clock-action {
+    margin: 20px auto;
+}
+
+#pause {
+    margin: 0 10px;
+}
+
+#play {
+    margin: 0 10px;
+}
+
+#stop {
+    margin: 0 10px;
 }
 
 #work {
@@ -37,10 +60,13 @@
     display: none !important;
 }
 
+span {
+    font-size: 15px !important;
+}
 
-/* button {
-    border: none;
-} */
+#setting-area {
+    margin-top: 25px;
+}
 
 ul .text {
     font-size: 15px !important;

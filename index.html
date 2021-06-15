@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Roboto:wght@100&family=Ubuntu&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/df11f1ce25.js" crossorigin="anonymous"></script>
+    <script src="progressBar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -18,26 +19,18 @@
         <div id="now" class="text"></div>
 
         <div id="clock">
-            <div id="timer">25:00</div>
+            <div id="timer"></div>
         </div>
         <div>
             <input id="task" type="text" placeholder="Enter your task...">
         </div>
         <div id="clock-action">
             <div id="start">
-                <i id="play" class="fas fa-play-circle text"></i>
-                <i id="pause" class="fas fa-pause-circle text hidden"></i>
+                <i id="play" class="fas fa-play-circle fa-2x text"></i>
+                <i id="pause" class="fas fa-pause-circle fa-2x text hidden"></i>
+
+                <i id="stop" class="fas fa-stop-circle fa-2x text hidden"></i>
             </div>
-            <i id="stop" class="fas fa-stop-circle text hidden"></i>
-            <!-- <button id="pomodoro-start" class="text">
-                <i class="fas fa-play-circle" id="play"></i>
-            </button>
-            <botton class="hidden text">
-                <i class="fas fa-pause" id="pause"></i>
-            </botton>
-            <button id="stop" class="hidden text">
-                <i class="fas fa-stop-circle"></i>
-            </button> -->
         </div>
         <div id="title" class="text">
             <span>
