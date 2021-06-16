@@ -1,6 +1,6 @@
 //choose element
 const timer = document.querySelector('#timer');
-const playButton = document.querySelector('#start');
+const playButton = document.querySelector('#play');
 const stopButton = document.querySelector('#stop');
 
 //btn CLICK function
@@ -21,9 +21,10 @@ var currentTimeLeftInSession = 1500; //25 mins
 var breakSessionDuration = 300; //5 mins
 
 var type = "Work";
-var timeSpentIncurrentSession = 0;
+var timeSpentInCurrentSession = 0;
 
 var currentTaskLabel = document.querySelector('#task');
+var clockTimer;
 
 //Customize the duration of the sessions
 var updatedWorkSessionDuration;
@@ -110,10 +111,9 @@ const toggleClock = reset => {
 const stepDown = () => {
     if (currentTimeLeftInSession > 0) {
         currentTimeLeftInSession--;
-        timeSpentIncurrentSession++;
+        timeSpentInCurrentSession++;
     } else if (currentTimeLeftInSession === 0) {
-        timeSpentIncurrentSession = 0;
-
+        timeSpentInCurrentSession = 0;
         //display a log of our completed sessions
         if (type === "Work") {
             displaySessionLog("Work");
@@ -173,7 +173,7 @@ const displaySessionLog = type => {
     //append li to it
     const li = document.createElement('li');
 
-    var elapsedTime = parseInt(timeSpentIncurrentSession / 60);
+    var elapsedTime = parseInt(timeSpentInCurrentSession / 60);
     elapsedTime = elapsedTime > 0 ? elapsedTime : '< 1';
 
     const text = document.createTextNode(`${sessionLabel} : ${elapsedTime} min`);
